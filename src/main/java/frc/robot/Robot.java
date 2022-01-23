@@ -5,7 +5,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.XboxController;
 
 
@@ -22,11 +21,12 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
-  VictorSP vic1= new VictorSP(6);
-  VictorSP vic2= new VictorSP(9);
-  XboxController xbox=new XboxController(1);
+  public static XboxController xbox;
+
   @Override
-  public void robotInit() {}
+  public void robotInit() {
+    xbox = new XboxController(0);
+  }
 
   @Override
   public void robotPeriodic() {}
@@ -41,16 +41,7 @@ public class Robot extends TimedRobot {
   public void teleopInit() {}
 
   @Override
-  public void teleopPeriodic() {
-    if(xbox.getAButton()){
-      vic1.set(0.5);
-      vic2.set(-0.5);
-    }
-    else{
-      vic1.set(0);
-      vic2.set(0);
-    }
-  }
+  public void teleopPeriodic() {}
 
   @Override
   public void disabledInit() {}
